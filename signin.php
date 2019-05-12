@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']))
     {
-        $name = isset($_POST['name']);
+        $name = $_POST['name'];
         if(isset($name))
         {
             $email = $_POST['email'];
@@ -37,7 +37,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Food Shop | Signin </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

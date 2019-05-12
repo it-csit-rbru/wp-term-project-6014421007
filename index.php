@@ -46,7 +46,7 @@
             {
     ?>
         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-            <div class="card card-small card-post card-post--1">
+            <div class="card card-small card-post card-post--1" onClick="check_conf_order()">
                 <div class="card-post__image" style="background-image: url('<?php echo $all_menu->food_image; ?>');">
                     <a href="index.php?pages=" class="card-post__category badge badge-pill badge-success"><?php echo $all_menu->food_type_name; ?></a>
                     <div class="card-post__author d-flex">
@@ -55,9 +55,9 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a class="text-fiord-blue" href="javascript:void(0);"><?php  echo $all_menu->food_name;?></a>
+                        <a class="text-fiord-blue" href="javascript:void(0);"><?php  echo $all_menu->food_name;?><span class="text-muted"><div class="text-right"><?php  echo $all_menu->food_price." บาท";?></div></span></a>
                     </h5>
-                    <span class="text-muted"><div class="text-right"><?php  echo $all_menu->food_price." บาท";?></div></span>
+                    
                 </div>
             </div>
         </div>

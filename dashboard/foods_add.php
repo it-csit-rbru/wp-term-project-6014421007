@@ -1,4 +1,32 @@
 <?php include 'header.php' ?>
+<?php
+    if(isset($_POST['food_name']) && isset($_POST['food_description']) && isset($_POST['food_price']) && isset($_POST['food_type']))
+    {
+        $food_name = $_POST['food_name'];
+        if($_FILES['food_image'])
+        {
+            if(move_uploaded_file($_FILES["food_image"]["tmp_name"],"../images/upload_foodmenu/".$_FILES["food_image"]["name"]))
+            {
+                $food_image = "images/upload_foodmenu/".$_FILES["food_image"]["name"];
+            }
+        }
+        else
+        {
+            $food_image = "images/unimage.jpg";
+        }
+        $food_description = $_POST['food_description'];
+        $food_price = $_POST['food_price'];
+        $food_type = $_POST['food_type'];
+
+        require '../connect.php';
+
+        $insert_foods = $conn->query("INSERT INTO foods(food_admin_id, food_name, food_image, food_description, food_price, food_type) VALUES ('$user_id','$food_name','$food_image','$food_description','$food_price','$food_type')");
+        if($insert_foods == TRUE)
+        {
+            Header("Location: foods_list.php");
+        }
+    }
+?>
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
@@ -6,14 +34,14 @@
     </div>
 </div>
 <!-- End Page Header -->
-<form action="foods_add.php" method="post">
+<form action="foods_add.php" method="post"  enctype="multipart/form-data">
     <div class="row">
         <div class="col-lg-9 col-md-12">
             <div class="card card-small mb-3">
                 <div class="card-body">
                     <div class="form-group">
                     <input class="form-control form-control-lg mb-3" name="food_name" type="text" placeholder="ชื่อเมนู" required>
-                    <input type="file" class="form-control-file mb-3" id="exampleFormControlFile1" required>
+                    <input type="file" class="form-control-file mb-3" name="food_image" id="food_image">
                     <textarea class="form-control form-control-lg mb-3" name="food_description" id="" cols="30" rows="8" placeholder="รายละเอียดเมนู" required></textarea>
                     </div>
                 </div>
