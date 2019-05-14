@@ -36,7 +36,7 @@
     {
         $search = $_GET['search'];
         $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_name LIKE '%".$search."%' ");
-        $pageTitle = "ค้นหาเมนู : ".$search;
+        $pageTitle = "ค้นหาเมนู : ' ".$search." '";
     }
     else
     {

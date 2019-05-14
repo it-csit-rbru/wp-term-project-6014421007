@@ -5,13 +5,14 @@
         $food_name = $_POST['food_name'];
         if($_FILES['food_image'])
         {
-            if(move_uploaded_file($_FILES["food_image"]["tmp_name"],"../images/upload_foodmenu/".$_FILES["food_image"]["name"]))
+            if(copy($_FILES["food_image"]["tmp_name"], "../images/upload_foodmenu/".$_FILES["food_image"]["name"]))
             {
                 $food_image = "images/upload_foodmenu/".$_FILES["food_image"]["name"];
             }
             else
             {
                 echo "อัพโหลดรูปไม่สำเร็จ";
+                $food_image = "images/unimage.jpg";
             }
         }
         else
@@ -38,7 +39,7 @@
     </div>
 </div>
 <!-- End Page Header -->
-<form action="foods_add.php" method="post"  enctype="multipart/form-data">
+<form action="" method="post"  enctype="multipart/form-data">
     <div class="row">
         <div class="col-lg-9 col-md-12">
             <div class="card card-small mb-3">
