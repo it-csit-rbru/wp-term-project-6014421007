@@ -27,6 +27,19 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <style>
+      .dataTables_filter > label > input{
+        padding:4px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+      }
+      .dataTables_length > label > select{
+        padding:4px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body class="h-100">
     <div class="container-fluid">
@@ -54,6 +67,11 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="order_list.php">
+                  <span>ออเดอร์ทั้งหมด</span>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="foods_list.php">
                   <span>เมนูทั้งหมด</span>
                 </a>
@@ -61,16 +79,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="foods_add.php">
                   <span>เพิ่มเมนูใหม่</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="table_list.php">
-                  <span>โต๊ะอาหารทั้งหมด</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="table_add.php">
-                  <span>เพิ่มโต๊ะใหม่</span>
                 </a>
               </li>
             </ul>

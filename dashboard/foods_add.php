@@ -1,6 +1,6 @@
 <?php include 'header.php' ?>
 <?php
-    if(isset($_POST['food_name']) && isset($_POST['food_description']) && isset($_POST['food_price']) && isset($_POST['food_type']))
+    if(isset($_POST['food_name']) && isset($_POST['food_price']) && isset($_POST['food_type']))
     {
         $food_name = $_POST['food_name'];
         if($_FILES['food_image'])
@@ -8,6 +8,10 @@
             if(move_uploaded_file($_FILES["food_image"]["tmp_name"],"../images/upload_foodmenu/".$_FILES["food_image"]["name"]))
             {
                 $food_image = "images/upload_foodmenu/".$_FILES["food_image"]["name"];
+            }
+            else
+            {
+                echo "อัพโหลดรูปไม่สำเร็จ";
             }
         }
         else
@@ -42,7 +46,7 @@
                     <div class="form-group">
                     <input class="form-control form-control-lg mb-3" name="food_name" type="text" placeholder="ชื่อเมนู" required>
                     <input type="file" class="form-control-file mb-3" name="food_image" id="food_image">
-                    <textarea class="form-control form-control-lg mb-3" name="food_description" id="" cols="30" rows="8" placeholder="รายละเอียดเมนู" required></textarea>
+                    <textarea class="form-control form-control-lg mb-3" name="food_description" id="" cols="30" rows="15" placeholder="รายละเอียดเมนู" required></textarea>
                     </div>
                 </div>
             </div>            

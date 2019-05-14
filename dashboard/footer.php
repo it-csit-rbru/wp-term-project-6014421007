@@ -17,6 +17,11 @@
     <script src="../scripts/shards-dashboards.1.1.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
     <script src="../scripts/app/app-blog-overview.1.1.0.js"></script>
-    
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#food_list').DataTable();
+        } );
+    </script>
   </body>
 </html>

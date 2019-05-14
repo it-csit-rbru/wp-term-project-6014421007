@@ -17,7 +17,7 @@
                 <div class="mb-3 text-right">
                     <a href="foods_add.php" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> เพิ่มเมนูอาหาร</a>
                 </div>
-                <table class="table table-hover">
+                <table class="table table-hover border-bottom table-borderless" id="food_list">
                     <thead class="border-left border-right">
                         <tr>
                             <th class="text-center">ลำดับ</th>
@@ -36,11 +36,11 @@
                             {
                         ?>
                         <tr>
-                            <td class="align-middle text-center"><?=$count?></td>
-                            <td><img src="../<?=$food_list->food_image?>" style="max-width:50px;max-height:40px;" class="img-fluid" alt="รูป <?=$food_list->food_name?>"></td>
+                            <td class="align-middle text-center col-lg-1"><?=$count?></td>
+                            <td class="text-center col-lg-1"><img src="../<?=$food_list->food_image?>" style="width:40px;height:40px;" class="img-fluid" alt="รูป <?=$food_list->food_name?>"></td>
                             <td class="align-bottom"><?=$food_list->food_name?></td>
                             <td class="align-bottom text-right"><?=$food_list->food_price." บาท"?></td>
-                            <td class="align-bottom text-center">
+                            <td class="align-bottom text-center col-lg-2">
                                 <a href="foods_edit.php?id=<?=$food_list->food_id?>" class="btn btn-sm btn-info"><i class="far fa-edit"></i></a>
                                 <a href="foods_delete.php?id=<?=$food_list->food_id?>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
                             </td>
