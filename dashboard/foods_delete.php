@@ -1,9 +1,13 @@
-<?php include 'header.php' ?>
-<!-- Page Header -->
-<div class="page-header row no-gutters py-4">
-    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-        <h3 class="page-title">ลบ เมนูอาหาร</h3>
-    </div>
-</div>
-<!-- End Page Header -->
-<?php include 'footer.php' ?>
+<?php
+    $delete_id = $_GET['id'];
+    if(isset($delete_id))
+    {
+        require '../connect.php';
+        $delete_food = $conn->query("DELETE FROM foods WHERE food_id=$delete_id");
+        if ($delete_food == TRUE) {
+            Header("Location: foods_list.php");
+        } else {
+            echo "Error deleting record: " . $conn->error;
+        }
+    }
+?>

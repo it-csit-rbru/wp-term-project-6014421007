@@ -42,7 +42,7 @@
                             <td class="align-bottom text-right"><?=$food_list->food_price." บาท"?></td>
                             <td class="align-bottom text-center col-lg-2">
                                 <a href="foods_edit.php?id=<?=$food_list->food_id?>" class="btn btn-sm btn-info"><i class="far fa-edit"></i></a>
-                                <a href="foods_delete.php?id=<?=$food_list->food_id?>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                                <a href="foods_delete.php?id=<?=$food_list->food_id?>" class="btn btn-sm btn-danger" onClick="return confirm('คุณต้องการที่จะลบเมนูนี้ ใช่หรือไม่ ?');"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         <?php

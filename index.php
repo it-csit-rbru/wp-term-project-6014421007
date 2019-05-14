@@ -4,43 +4,43 @@
     require 'connect.php';
     if($_GET['pages'] == "All")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name ORDER BY food_name ASC");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id ORDER BY food_name ASC");
         $pageTitle = "เมนู ทั้งหมด";
     }
     else if($_GET['pages'] == "Cooked")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_type='Cooked' ORDER BY food_name ASC ");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_type='Cooked' ORDER BY food_name ASC ");
         $pageTitle = "เมนู ทั่วไป";
     }
     else if($_GET['pages'] == "Vegetable")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_type='Vegetable' ORDER BY food_name ASC");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_type='Vegetable' ORDER BY food_name ASC");
         $pageTitle = "เมนู ผัก";
     }
     else if($_GET['pages'] == "Boil")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_type='Boil' ORDER BY food_name ASC");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_type='Boil' ORDER BY food_name ASC");
         $pageTitle = "เมนู ต้ม";
     }
     else if($_GET['pages'] == "Dessert")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_type='Dessert' ORDER BY food_name ASC");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_type='Dessert' ORDER BY food_name ASC");
         $pageTitle = "เมนู ของหวาน";
     }
     else if($_GET['pages'] == "Beverage")
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_type='Beverage' ORDER BY food_name ASC ");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_type='Beverage' ORDER BY food_name ASC ");
         $pageTitle = "เมนู เครื่องดื่ม";
     }
     else if(isset($_GET['search']))
     {
         $search = $_GET['search'];
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name WHERE food_name LIKE '%".$search."%' ");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id WHERE food_name LIKE '%".$search."%' ");
         $pageTitle = "ค้นหาเมนู : ' ".$search." '";
     }
     else
     {
-        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name ORDER BY food_name ASC");
+        $select_all = $conn->query("SELECT * FROM foods INNER JOIN foods_type ON foods.food_type = foods_type.food_type_name INNER JOIN user_admin ON foods.food_admin_id = user_admin.admin_id ORDER BY food_name ASC");
         $pageTitle = "เมนู ทั้งหมด";
     }
     
@@ -68,8 +68,12 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a class="text-fiord-blue" href="javascript:void(0);"><?=$all_menu->food_name;?><span class="text-muted"><div class="text-right"><?=$all_menu->food_price." บาท";?></div></span></a>
+                        <a class="text-fiord-blue" href="javascript:void(0);"><?=$all_menu->food_name;?></a>
                     </h5>
+                    <div class="w-100">
+                        <span class=" text-muted"><?=$all_menu->admin_name?></span>
+                        <span class="float-right h6"><?=$all_menu->food_price." บาท";?></span>
+                    </div>
                     
                 </div>
             </div>
